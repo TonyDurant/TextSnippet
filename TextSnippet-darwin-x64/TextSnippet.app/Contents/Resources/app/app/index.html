@@ -1,0 +1,22 @@
+<meta charset='utf-8'>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+<span class='prepend-mag' aria-hidden='true'>🔍</span>
+<input class='search js-search' type='search' placeholder='Type a keyword...' aria-label='Enter a keyword'></input>
+<!-- <span class='prepend-mag-right'><kbd>CommandOrControl + ,</kbd> for settings</span> -->
+<div class="list-group results js-results">
+</div>
+<div class="list-group">
+  <a href="#" class="list-group-item" onclick="toggleAddSnippetPanel();">
+    <h5 class="list-group-item-heading"><kbd>+ Add a phrase</kbd></h5>
+    <p class="list-group-item-text">You can add your custom phrases and save on keystrokes later. Give it a shot!</p>
+  </a>
+  <a href="#" class="list-group-item" onclick="togglePreferencePanel();">
+    <h5 class="list-group-item-heading"><kbd>Settings</kbd></h5>
+    <p class="list-group-item-text">Set up your shortcut, font size, etc.</p>
+  </a>
+</div>
+<script type="text/javascript" src="search.js"></script>
+<script type="text/javascript" src="settings.js"></script>
+<script type="text/javascript" src="add_snippet.js"></script>
+<script type="text/javascript" src="snippets.js"></script>

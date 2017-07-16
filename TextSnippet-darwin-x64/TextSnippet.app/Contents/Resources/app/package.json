@@ -1,0 +1,34 @@
+{
+  "name": "TextSnippet",
+  "version": "0.7.15",
+  "description": "TextSnippet is a place where you can search through your best passages and phrases and then use them to perfectly convey your message.",
+  "main": "index.js",
+  "dependencies": {
+    "electron-is-dev": "^0.1.2",
+    "emojilib": "2.2.3",
+    "menubar": "^5.1.0",
+    "fuse.js": "^3.0.5"
+  },
+  "devDependencies": {
+    "electron": "^1.6.0",
+    "electron-packager": "^8.0.0",
+    "standard": "^10.0.2",
+    "fuse.js": "^3.0.5"
+  },
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager . TextSnippet --platform=darwin --arch=x64 --overwrite --icon=mojibar",
+    "build:linux": "electron-packager . TextSnippet --platform=linux --arch=x64 --overwrite --icon=mojibar",
+    "test": "standard index.js app/search.js app/settings.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muan/mojibar.git"
+  },
+  "author": "Mu-An Chiou <me@muanchiou.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muan/mojibar/issues"
+  },
+  "homepage": "https://github.com/muan/mojibar#readme"
+}

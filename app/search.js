@@ -1,3 +1,8 @@
+window.onload = function() {
+  createSnippetFolder();
+  createSnippetFile();
+}
+
 var emojilib = require('emojilib').lib
 var emojikeys = require('emojilib').ordered
 var clipboard = require('electron').clipboard
@@ -114,10 +119,6 @@ document.addEventListener('keydown', function (evt) {
   }
 })
 
-window.onload = function() {
-  createSnippetFolder();
-  createSnippetFile();
-}
 
 // searchInput.dataset.isSearchInput = true
 // searchInput.focus()

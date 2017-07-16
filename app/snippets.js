@@ -20,7 +20,10 @@ function createSnippetFile () {
   if (fs.existsSync(snippet_file_path)) {
     console.log("File Exists");
   } else {
-    fs.writeFileSync(snippet_file_path)
-    console.log("Snippet file  has been created");
+    list = {"snippets": [{"abb": "hmbf", "full_text": "I would appreciate if you could sort it out as soon as possible.", "author": "Anton Vinogradov"}]};
+    var data = JSON.stringify(list, null, 2)
+    fs.writeFileSync(snippet_file_path, data)
+    console.log("Snippet file has been created");
+    location.reload()
   }
 }
