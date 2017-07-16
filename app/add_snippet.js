@@ -20,7 +20,7 @@ function addSnippet () {
   fs.writeFileSync(snippet_file_path, JSON.stringify(list, null, 2));
 
   toggleAddSnippetPanel();
-  location.reload()
+  location.reload();
 }
 
 var toggleAddSnippetPanel = function () {

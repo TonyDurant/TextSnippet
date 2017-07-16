@@ -17,8 +17,8 @@
   },
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . TextSnippet --platform=darwin --arch=x64 --overwrite --icon=mojibar",
-    "build:linux": "electron-packager . TextSnippet --platform=linux --arch=x64 --overwrite --icon=mojibar",
+    "build": "electron-packager ./ TextSnippet --all --out ~/Desktop/TextSnippet --version 1.3.14 --overwrite --icon=mojibar",
+    "build:linux": "electron-packager ./ TextSnippet --platform=linux --arch=x64 ~/Desktop/TextSnippet --overwrite --icon=mojibar",
     "test": "standard index.js app/search.js app/settings.js"
   },
   "repository": {
