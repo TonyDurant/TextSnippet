@@ -52,7 +52,7 @@ ipcMain.on('update-preference', function (evt, pref, initialization) {
 
 var template = [
   {
-    label: 'Mojibar',
+    label: 'TextSnippet',
     submenu: [
       {
         label: 'Undo',

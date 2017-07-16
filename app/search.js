@@ -16,31 +16,11 @@ var directions = {
 }
 var Fuse = require('fuse.js')
 
-var list = [{
-  'abb': 'tyvm',
-  'full_text': "Thank you very much.",
-  'author': 'Anton Vinogradov'
-}, {
-  'abb': 'hmbf',
-  'full_text': 'I would appreciate if you could sort it out as soon as possible.',
-  'author': 'Steve Hamilton'
-}, {
-  'abb': 'closing',
-  'full_text': 'We look forward to receiving your reply; Regards, ',
-  'author': 'Steve Hamilton'
-}, {
-  'abb': 'complaint',
-  'full_text': 'We were very surprised and disappointed by this.',
-  'author': 'Steve Hamilton'
-}, {
-  'abb': 'hmbf',
-  'full_text': 'I would appreciate if you could sort it out as soon as possible.',
-  'author': 'Steve Hamilton'
-}, {
-  'abb': 'hmbf',
-  'full_text': 'I would appreciate if you could sort it out as soon as possible.',
-  'author': 'Steve Hamilton'
-}]
+var fs = require('fs');
+const path = require('path');
+var {app} = require('electron').remote;
+const snippet_file_path = path.join(app.getPath('userData'), 'Snippets', 'snippets.json');
+var list = JSON.parse(fs.readFileSync(snippet_file_path, 'utf-8'));
 
 var options = {
   shouldSort: true,
@@ -51,12 +31,12 @@ var options = {
   minMatchCharLength: 1,
   keys: [
     "abb",
-    "full_text"
+    "full_text",
+    "author"
 ]
 };
 
-var fuse = new Fuse(list, options); // "list" is the item array
-var result = fuse.search("wow");
+var fuse = new Fuse(list.snippets, options); // "list" is the item array
 
 searchInput.dataset.isSearchInput = true
 searchInput.focus()
@@ -135,7 +115,8 @@ document.addEventListener('keydown', function (evt) {
 })
 
 window.onload = function() {
-  createUserTemplateFolder();
+  createSnippetFolder();
+  createSnippetFile();
 }
 
 // searchInput.dataset.isSearchInput = true

@@ -8,9 +8,9 @@ var defaultPreference = {
 }
 
 var preferenceNames = {
-  'open-window-shortcut': 'Mojibar shortcut',
-  'emoji-size': 'Emoji font size',
-  'open-at-login': 'Start Mojibar at login'
+  'open-window-shortcut': 'TextSnippet shortcut',
+  'emoji-size': 'Text font size',
+  'open-at-login': 'Start TextSnippet at login'
 }
 
 var applyPreferences = function (preference, initialization) {
@@ -18,7 +18,7 @@ var applyPreferences = function (preference, initialization) {
 
   ipc.send('update-preference', preference, initialization)
   var style = document.createElement('style')
-  style.innerText = '.emoji { font-size: ' + preference['emoji-size'] + 'px; width: ' + (Number(preference['emoji-size']) + 20) + 'px; height: ' + (Number(preference['emoji-size']) + 20) + 'px; }'
+  style.innerText = 'p { font-size: ' + preference['emoji-size'] + 'px; }'
   document.body.appendChild(style)
 }
 
@@ -26,7 +26,11 @@ var savePreference = function (event) {
   event.preventDefault()
 
   Object.keys(preference).forEach(function (key) {
+    console.log(key);
+    console.log(preference[key]);
     var el = document.getElementById(key)
+    console.log(el);
+    console.log("====================");
     preference[key] = el.type === 'checkbox' ? el.checked : el.value
   })
 
