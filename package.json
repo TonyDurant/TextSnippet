@@ -23,12 +23,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/muan/mojibar.git"
+    "url": "git+https://github.com/TonyDurant/TextSnippet.git"
   },
-  "author": "Mu-An Chiou <me@muanchiou.com>",
+  "author": "Anton Vinogradov <antvin@me.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/muan/mojibar/issues"
+    "url": "https://github.com/TonyDurant/TextSnippet/issues"
   },
-  "homepage": "https://github.com/muan/mojibar#readme"
+  "homepage": "https://github.com/TonyDurant/TextSnippet"
 }

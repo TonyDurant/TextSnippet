@@ -8,9 +8,10 @@ function addSnippet () {
   var author = document.getElementById('author_field').value
 
   var snippet = {
-    "abb": abb,
-    "full_text": text_snippet,
-    "author": author
+    "id":         Date.now(),
+    "abb":        abb,
+    "full_text":  text_snippet,
+    "author":     author
   }
 
   var list = JSON.parse(fs.readFileSync(snippet_file_path, 'utf-8'));
@@ -20,7 +21,7 @@ function addSnippet () {
   fs.writeFileSync(snippet_file_path, JSON.stringify(list, null, 2));
 
   toggleAddSnippetPanel();
-  location.reload();
+  window.location.reload(true);
 }
 
 var toggleAddSnippetPanel = function () {

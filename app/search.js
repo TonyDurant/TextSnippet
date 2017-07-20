@@ -3,13 +3,8 @@ window.onload = function() {
   createSnippetFile();
 }
 
-var emojilib = require('emojilib').lib
-var emojikeys = require('emojilib').ordered
 var clipboard = require('electron').clipboard
 var ipc = require('electron').ipcRenderer
-// var index = buildIndex()
-// var indexKeys = Object.keys(index)
-// var emojikeyIndexTable = buildEmojikeyIndexTable()
 var searching = false
 var searchInput = document.querySelector('.js-search')
 var searchResults = document.querySelector('.js-results')
@@ -59,7 +54,7 @@ ipc.on('show', function (event, message) {
 function populateResults (result) {
   var text_snippet = document.createElement('div')
   for (var i = 0; i < result.length; i++) {
-    var html = '<a href="#" class="list-group-item" onclick="copyFocusedText(' + "'" + result[i].full_text + "'" + ');" >'
+    var html = '<a href="#" class="list-group-item" onclick="copyFocusedText(' + result[i].id + ');" >'
     // html += '<input type="checkbox" id="' + key + '"' + (preference[key] ? 'checked' : '') + '>'
     html += '<h5 class="list-group-item-heading">' + result[i].abb + '</h5>'
     html += '<p class="list-group-item-text">' + result[i].full_text + '</p>'
@@ -70,13 +65,14 @@ function populateResults (result) {
   searchResults.innerHTML = text_snippet.innerHTML
 }
 
-function copyFocusedText (text, copyText) {
+function copyFocusedText (id, copyText) {
   var data
+  console.log(list.snippets.filter(function(snippet){return snippet.id == id;})[0].full_text)
   // on enter: copy data and exit
   if (copyText) {
-    data = text
+    data = list.snippets.filter(function(snippet){return snippet.id == id;})[0].full_text
   } else {
-    data = text
+    data = list.snippets.filter(function(snippet){return snippet.id == id;})[0].full_text
   }
   clipboard.writeText(data)
   searchInput.value = ''
@@ -118,7 +114,6 @@ document.addEventListener('keydown', function (evt) {
     ipc.send('abort')
   }
 })
-
 
 // searchInput.dataset.isSearchInput = true
 // searchInput.focus()

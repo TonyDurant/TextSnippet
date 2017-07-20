@@ -1,9 +1,7 @@
 var fs = require('fs');
 var {app} = require('electron').remote;
-// const path = require('path');
 var data = {};
 const snippet_folder_path = path.join(app.getPath('userData'), 'Snippets');
-// const snippet_file_path = path.join(app.getPath('userData'), 'Snippets', 'snippets.json');
 
 function createSnippetFolder () {
   console.log(snippet_folder_path);
@@ -20,10 +18,10 @@ function createSnippetFile () {
   if (fs.existsSync(snippet_file_path)) {
     console.log("File Exists");
   } else {
-    list = {"snippets": [{"abb": "hmbf", "full_text": "I would appreciate if you could sort it out as soon as possible.", "author": "Anton Vinogradov"}]};
+    list = {"snippets": [{"id": Date.now(), "abb": "hmbf", "full_text": "I would appreciate if you could sort it out as soon as possible.", "author": "Anton Vinogradov"}]};
     var data = JSON.stringify(list, null, 2)
     fs.writeFileSync(snippet_file_path, data)
     console.log("Snippet file has been created");
-    location.reload()
+    window.location.reload(true);
   }
 }
