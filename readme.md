@@ -1,3 +1,4 @@
 # TextSnippet
 
-![screenshot](https://cloud.githubusercontent.com/assets/1153134/12583324/7756a38a-c485-11e5-9388-3b5c61743905.gif)
+Press `Control+Shift+Space` shortcut in order to launch the app
+![Intro](https://img-fotki.yandex.ru/get/742275/104136015.21/0_be0d0_f5a4f36b_XXL.png)
