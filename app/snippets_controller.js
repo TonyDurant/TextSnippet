@@ -24,6 +24,13 @@ function addSnippet () {
   window.location.reload(true);
 }
 
+function deleteSnippet(id) {
+  var snippet = list.snippets.filter(function(snippet){return snippet.id == id;})[0]
+  var snippet_position = list.snipets.indexOf(snippet)
+  list.snippets.splice(snippet_position, 1)
+  window.location.reload(true);
+}
+
 var toggleAddSnippetPanel = function () {
   if (document.body.classList.contains('on-add-snippet')) {
     document.body.classList.remove('on-add-snippet')

@@ -55,7 +55,6 @@ function populateResults (result) {
   var text_snippet = document.createElement('div')
   for (var i = 0; i < result.length; i++) {
     var html = '<a href="#" class="list-group-item" onclick="copyFocusedText(' + result[i].id + ');" >'
-    // html += '<input type="checkbox" id="' + key + '"' + (preference[key] ? 'checked' : '') + '>'
     html += '<h5 class="list-group-item-heading">' + result[i].abb + '</h5>'
     html += '<p class="list-group-item-text">' + result[i].full_text + '</p>'
     html += '</a>'
@@ -67,7 +66,6 @@ function populateResults (result) {
 
 function copyFocusedText (id, copyText) {
   var data
-  console.log(list.snippets.filter(function(snippet){return snippet.id == id;})[0].full_text)
   // on enter: copy data and exit
   if (copyText) {
     data = list.snippets.filter(function(snippet){return snippet.id == id;})[0].full_text
@@ -114,6 +112,27 @@ document.addEventListener('keydown', function (evt) {
     ipc.send('abort')
   }
 })
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+if (!event.target.matches('.dropbtn')) {
+
+  var dropdowns = document.getElementsByClassName("dropdown-content");
+  var i;
+  for (i = 0; i < dropdowns.length; i++) {
+    var openDropdown = dropdowns[i];
+    if (openDropdown.classList.contains('show')) {
+      openDropdown.classList.remove('show');
+    }
+  }
+}
+}
 
 // searchInput.dataset.isSearchInput = true
 // searchInput.focus()

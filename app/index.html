@@ -4,19 +4,51 @@
 <span class='prepend-mag' aria-hidden='true'>🔍</span>
 <input class='search js-search' type='search' placeholder='Type a keyword...' aria-label='Enter a keyword'></input>
 <!-- <span class='prepend-mag-right'><kbd>CommandOrControl + ,</kbd> for settings</span> -->
-<div class="list-group results js-results">
-</div>
+<div class="list-group results js-results"></div>
 <div class="list-group">
-  <a href="#" class="list-group-item" onclick="toggleAddSnippetPanel();">
-    <h5 class="list-group-item-heading"><kbd>+ Add a phrase</kbd></h5>
-    <p class="list-group-item-text">You can add your custom phrases and save on keystrokes later. Give it a shot!</p>
-  </a>
-  <a href="#" class="list-group-item" onclick="togglePreferencePanel();">
-    <h5 class="list-group-item-heading"><kbd>Settings</kbd></h5>
-    <p class="list-group-item-text">Set up your shortcut, font size, etc.</p>
-  </a>
+  <div class="panel panel-default" style="cursor: pointer" onclick="toggleAddSnippetPanel();">
+    <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object" src="icons8-Add File.png" alt="..." width="30px">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">+ Add text snippet</h4>
+            <p>You can add your custom phrases and save on keystrokes later. Give it a shot!</p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="panel panel-default" style="cursor: pointer" onclick="togglePreferencePanel();">
+    <div class="panel-body">
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+              <img class="media-object" src="icons8-Settings.png" alt="..." width="30px">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Settings</h4>
+            <p>Set up your shortcut, font size, etc.</p>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
+
+  <!-- <div class="dropdown">
+    <button onclick="myFunction()" class="dropbtn btn btn-default">Dropdown</button>
+    <div id="myDropdown" class="dropdown-content list-group">
+      <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+      <a href="#" class="list-group-item">Morbi leo risus</a>
+      <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+      <a href="#" class="list-group-item">Vestibulum at eros</a>
+    </div>
+  </div> -->
+
 <script type="text/javascript" src="search.js"></script>
 <script type="text/javascript" src="settings.js"></script>
-<script type="text/javascript" src="add_snippet.js"></script>
+<script type="text/javascript" src="snippets_controller.js"></script>
 <script type="text/javascript" src="snippets.js"></script>
